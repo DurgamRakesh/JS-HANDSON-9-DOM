@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JS-HANDSON-9-DOM</title>
+    <link rel="stylesheet" href="./styles.css">
+</head>
+<body>
+    <h1>JAVA SCRIPT HANDSON-9 <br><span class="arr">DOM</span></h1>
+
+    
+    <h2>Question 1 :Write the code to access element which is having id as "text"</h2>
+
+       <h2 id="text">this is heading one</h2>
+       <pre>
+        let id = document.getElementById('text')
+       </pre>
+    
+
+    <h2>Question 2 :Write the code to access element which is having tag as "h1"</h2>
+
+    <h1>this is h1 tag</h1>
+    <pre>
+        let tagname = document.getElementsByTagName('h1')
+    </pre>
+
+    <h2>Question 3 :Write the code to access element which is having class as "box"</h>
+    
+    <h2 class="box">heading two</h2>
+    <h2 class="box">heading twooo</h2>
+
+    <pre>
+        let classname = document.getElementsByClassName('box')
+    </pre>
+
+    <h2>Question 4 :"Change the heading from ""Hello"" to ""Hello World"" using DOM functions"</h>
+
+    <h3 id="h3-tag">Hello</h3> 
+    <pre>
+     let newv = document.getElementById('h3-tag').textContent = 'Hello World'
+    </pre>
+    <h2>Question 5 :Create three cards on HTML page and arrange them using flex property in row or horizontal direction and also create button at the bottom named "Change Flex direction". When user clicks on this button, the cards arrangement should be changed to vertical direction.</h>
+
+        <div id="main-container">
+            <div class="boxes">box1</div>
+            <div class="boxes">box2</div>
+            <div class="boxes">box3</div>
+        </div>
+        <button id="btn" onclick="change()">click here</button>
+        <pre>
+            function change(){
+                let newflex = document.getElementById('main-container')
+            
+                if(newflex.style.flexDirection == 'row'){
+                    console.log('row');
+                    newflex.style.flexDirection = 'column'
+                }
+                else{
+                    newflex.style.flexDirection = 'row'
+                    console.log('c');
+                }
+            }
+        </pre>
+    <h2>Question 6 :What’s the difference between window vs document?</h>
+            
+
+        <p>
+            Window : The window  is the top-most object of the DOM hierarchy. It represents a browser window or frame that displays the contents of the webpage. Whenever a window appears on the screen to display the contents of the document. <br>
+
+             Document: The document represent a web page that is loaded in the browser.With the help of document  we can add dynamic content to our web page. The document can be accessed with a window.document or just document.
+        </p>
+            <pre>
+                
+    
+            </pre>
+    <h2>Question 7 :"
+        Add one style attribute and give text color as red and id attribute and give the id value as ""heading"" in the above given h1 tag using DOM functions"</h>
+
+        <h1>Hello</h1>
+        
+                <pre>
+                    let head = document.querySelector('h1')
+                    head.setAttribute('id','heading')
+                    document.getElementById('heading').style.color = 'red'
+        
+                </pre>
+
+    <h2>Question 8 :Create an HTML page having content as Hello world and a button named Replace Text. When user will click on this button page content should be changed to "Welcome to Elevation academy"</h>
+
+        <p id="para">Hello World</p>
+        <button id="btn2">Replace Text</button>
+
+                <pre>
+                    document.querySelector('#btn2').addEventListener('click' , () => {
+                        document.querySelector('#para').textContent = 'Welcome to Elevation Academy'
+                     })
+                </pre>
+    <h2>Question 9 :Write code to implement timer clock using JS -- display HH:MM:SS -- the time should keep updating every second</h>
+
+        <div>
+            <span id="hrs"></span>
+            <span id="min"></span>
+            <span id="sec"></span>
+            <span id="ap"></span>
+        </div>
+                <pre>
+                    function time(){
+
+                        let date = new Date();
+                        let hours = date.getHours()
+                        let mins = date.getMinutes()
+                        let secs = date.getSeconds()
+                    
+                        document.getElementById("min").innerHTML = mins + ":"
+                        document.getElementById("sec").innerHTML = secs 
+                        if(hours < 10){
+                            hours = '0' + hours
+                        }
+                        if(mins < 10){
+                            mins = '0' + mins
+                        } 
+                        if(hours > 12){
+                            hours = hours - 12
+                        document.getElementById("ap").innerHTML = "PM"
+                        }else{
+                        document.getElementById("ap").innerHTML = "AM"
+                        }
+                        document.getElementById("hrs").innerHTML = hours + ":"
+                        
+                    
+                        
+                     }setInterval(time,1000)
+                </pre>
+    <h2>Question 10 :Create a select drop down for selecting Year 20-21, 21-22 etc. Print the item text selected</h>
+        
+        <select id="select">
+            <option value="">default</option>
+            <option value="20-21">20-21</option>
+            <option value="20-22">20-22</option>
+            <option value="20-23">20-23</option>
+        </select>
+    
+    <button id="newbtn">click</button>    
+    <div id="new-divv">The selected year is:<span id="selectedyear"> </span></div>
+
+                <pre>
+                    document.querySelector('#newbtn').addEventListener('click' , () => {
+                        newvalue = document.querySelector("#select")
+                        a = newvalue.options[newvalue.selectedIndex].value;
+                       document.querySelector("#selectedyear").textContent = a
+                   
+                   })
+                </pre>
+
+    
+
+    
+
+    
+    
+    <script src="./main.js"></script>
+</body>
+</html>
